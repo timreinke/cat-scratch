@@ -62,5 +62,5 @@
     "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */
 
   },
-  "include": ["dev/*.ts", "flavor/*.ts"]
+  "include": ["scratch/*.ts", "flavor/*.ts"]
 }

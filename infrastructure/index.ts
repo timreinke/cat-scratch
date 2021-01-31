@@ -24,14 +24,6 @@ export const web = new digitalocean.Droplet("web", {
     userData: fs.readFileSync('provisioning/digitalocean_init.yaml').toString()
 });
 
-class Me extends CustomResource {
-  constructor(name : string, props : Record<string, any>, opts?: CustomResourceOptions) {
-    super("me", name, props, opts)
-  }
-}
-
-export const foo = new Me('woot', {})
-
 const privateWebFirewall = new digitalocean.Firewall("privateWebFirewall", {
   tags: [privateWeb.name],
   inboundRules: [
@@ -150,7 +142,7 @@ const publicWebFirewall = new digitalocean.Firewall("publicWeb", {
 
 
 const www = new digitalocean.DnsRecord("app", {
-  domain: "thisisacomputer.com",
+  domain: "mostcallmetim.com",
   type: "A",
   value: web.ipv4Address,
   name: "app",

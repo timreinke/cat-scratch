@@ -5,11 +5,14 @@ packages:
  - yarnpkg
  - build-essential
  - tailscale
+ - docker
 runcmd:
  - mkdir /run/ms-setup
  - curl -sL https://deb.nodesource.com/setup_10.x -o /run/ms-setup/nodesource_setup.sh
  - bash /run/ms-setup/nodesource_setup.sh
- - tailscale up --authkey {{ ts-authkey }}
+ - sudo curl -L https://github.com/docker/compose/releases/download/1.28.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+ - sudo chmod +x /usr/local/bin/docker-compose
+ - touch /run/ms-setup/ready
 
 
 apt:

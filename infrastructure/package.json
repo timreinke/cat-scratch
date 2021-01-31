@@ -4,7 +4,9 @@
         "@types/node": "^10.0.0"
     },
     "dependencies": {
+        "@pulumi/digitalocean": "^3.0.0",
         "@pulumi/pulumi": "^2.0.0",
-        "@pulumi/digitalocean": "^3.0.0"
+        "scp2": "^0.5.0",
+        "ssh2": "^0.8.9"
     }
 }

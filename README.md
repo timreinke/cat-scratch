@@ -5,3 +5,17 @@ components, operating on the source, that provide a more structured editing expe
 It comes with basic deployment scripts that set up single node deployments in Digital Ocean, AWS, and others.
 
 See the [project homepage](https://thisisacomputer.com/lab/projects/cat-scratch/) for more information.
+
+
+# TODO
+- Boot and document processes
+ - code-server
+ - dev-server
+
+- Document setup
+```
+pulumi login
+pulumi --cwd infrastructure stack select
+pulumi plugin install resource digitalocean v3.2.0
+pulumi config set ...
+```
