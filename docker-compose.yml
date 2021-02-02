@@ -1,16 +1,36 @@
 version: "3.5"
 
 services:
+  app_server:
+    build: docker/app_server
+    command: yarn dev-start
+    volumes:
+      - .:/app
+    networks:
+      - temporal-network
+      - app-network
   code_server:
     build: docker/code_server
     command: code-server
     volumes:
       - .:/home/node/project
+      - ./docker/code_server/config.yaml:/home/node/.config/code-server/config.yaml
     user: node
-    network_mode: host
+    networks:
+      - dev-network
+    expose:
+      - 8080
   caddy:
     image: caddy
-    network_mode: host
+    depends_on: 
+      - app_server
+      - code_server
+    networks:
+      - dev-network
+      - app-network
+    ports:
+      - 8000:8000
+      - 9000:9000
     volumes:
       - ./docker/caddy/Caddyfile:/etc/caddy/Caddyfile
 
@@ -67,9 +87,15 @@ services:
       - temporal-network
     ports:
       - 8088:8088
+# END temporal
 
 networks:
   temporal-network:
     driver: bridge
     name: temporal-network
-# END temporal
+  app-network:
+    driver: bridge
+    name: app-network
+  dev-network:
+    driver: bridge
+    name: dev-network
