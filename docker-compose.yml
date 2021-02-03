@@ -22,6 +22,8 @@ services:
       - 8080
   caddy:
     image: caddy
+    environment:
+      - SITE_DOMAIN=hobbs.mostcallmetim.com
     depends_on: 
       - app_server
       - code_server

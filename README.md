@@ -19,3 +19,12 @@ pulumi --cwd infrastructure stack select
 pulumi plugin install resource digitalocean v3.2.0
 pulumi config set ...
 ```
+
+- actually have some app functionality of some sort
+
+- thinking about deployment lifecycle
+- maybe add https://github.com/replit/upm
+
+## TODO someday
+- investigate oauth2-proxy vs loginsrv
+ 

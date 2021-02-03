@@ -64,7 +64,7 @@ export function mkDefaultCounterMachine(options : {patchListener: PatchListener}
     return CounterMachine.withConfig({
         actions: {
             handleSet: handleSet.listener(options.patchListener) as AssignAction<Context, CounterEvent>,
-            handleIncrement: handleSet.listener(options.patchListener) as AssignAction<Context, CounterEvent>,
+            handleIncrement: handleIncrement.listener(options.patchListener) as AssignAction<Context, CounterEvent>,
         }
     })
 }

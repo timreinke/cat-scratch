@@ -1,4 +1,9 @@
-hobbs.mostcallmetim.com:9000 {
+{$SITE_DOMAIN}:8000 {
+    tls internal
+    reverse_proxy http://app_server:8000
+}
+
+{$SITE_DOMAIN}:9000 {
     tls internal
 	reverse_proxy http://code_server:8080
 }
