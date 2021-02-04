@@ -20,6 +20,9 @@ pulumi plugin install resource digitalocean v3.2.0
 pulumi config set ...
 ```
 
+- setup/config/install script
+- drive domain from configuration
+
 - actually have some app functionality of some sort
 
 - thinking about deployment lifecycle
