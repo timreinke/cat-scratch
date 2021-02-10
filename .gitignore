@@ -1,2 +1,5 @@
 **/node_modules
 docker/code_server/config.yaml
+cert.pem
+privkey.pem
+state/

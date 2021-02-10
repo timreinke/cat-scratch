@@ -25,6 +25,10 @@ pulumi config set ...
 - drive domain from configuration
 
 - actually have some app functionality of some sort
+    - pull twitter likes?
+- persistent data
+    - look at datasette
+- the spreadsheet trading card game
 
 - thinking about deployment lifecycle
 - maybe add https://github.com/replit/upm

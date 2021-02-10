@@ -1,6 +1,12 @@
 version: "3.5"
 
 services:
+  dozzle:
+    image: amir20/dozzle:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - dev-network
   app_server:
     build: docker/app_server
     command: yarn dev-start
@@ -35,10 +41,18 @@ services:
       - dev-network
       - app-network
     ports:
+      - 80:80
+      - 443:443
+      - 4000:4000
       - 8000:8000
       - 9000:9000
+      - 9001:9001
     volumes:
+      - ./state/caddy/data:/data:delegated
+      - ./state/caddy/config:/config:delegated
       - ./docker/caddy/Caddyfile:/etc/caddy/Caddyfile
+      - ./cert.pem:/cert.pem
+      - ./privkey.pem:/privkey.pem
 
 # BEGIN temporal
 

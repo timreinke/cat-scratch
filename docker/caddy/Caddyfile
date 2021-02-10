@@ -1,9 +1,20 @@
 {$SITE_DOMAIN}:8000 {
-    tls internal
+    tls /cert.pem /privkey.pem
     reverse_proxy http://app_server:8000
 }
 
 {$SITE_DOMAIN}:9000 {
-    tls internal
+    tls /cert.pem /privkey.pem
 	reverse_proxy http://code_server:8080
+}
+
+{$SITE_DOMAIN}:9001 {
+    tls /cert.pem /privkey.pem
+	reverse_proxy http://dozzle:8080
+}
+
+{$SITE_DOMAIN}:9002 {
+    tls /cert.pem /privkey.pem
+    root * /frame_view
+    file_server
 }
